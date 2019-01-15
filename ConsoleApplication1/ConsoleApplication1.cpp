@@ -34,7 +34,297 @@ int randNum(int min, int max)
 }
 
 class MyClass {
-	friend void Chase(), Prison(), Work(), Window(), NewDay(), gameOver(), gameStart(), gameMain();
+	friend void CarDealer(), Bank(), Chase(), Prison(), Work(), Window(), NewDay(), gameOver(), gameStart(), gameMain();
+
+public: void CarDealer()
+{
+	string choose;
+	system("cls");
+	cout << "Witaj w salonie, masz w portfelu $" << money << endl;
+	cout << "Aby zakupic wpisz nazwe pojazdu z malej litery." << endl;
+	cout << "=====POJAZDY=====" << endl;
+	cout << "Broadway/Hustler $50,000 (-0 Robota, -0 Wjazd, +Dziwki" << endl;
+	cout << "Buccaneer $1,000 (-5s Robota, -0s Wjazd)" << endl;
+	cout << "Greenwood $3,000 (-5s Robota, -10s Wjazd)" << endl;
+	cout << "Picador $5,000 (-15s Robota, -5s Wjazd)" << endl;
+	cout << "Solair $8,000 (-10s Robota, -20s Wjazd)" << endl;
+	cout << "Sanchez $15,000 (-30s Robota, -0s Wjazd)" << endl;
+	cout << "Sunrise $15,000 (-15s Robota, -30s Wjazd)" << endl;
+	cout << "Elegy $30,000 (-45s Robota, -15s Wjazd)" << endl;
+	cout << "Sultan $40,000 (-35s Robota, -50s Wjazd)" << endl;
+	cout << "Bullet $70,000 (-55s Robota, -25s Wjazd)" << endl;
+	cout << "Huntley $75,000 (-40s Robota, -60s Wjazd)" << endl;
+	cout << "Cheetah $150,000 (-60s Robota, -40s Wjazd)" << endl;
+	cout << "Turismo $300,000 (-60s Robota, -50s Wjazd)" << endl;
+	cout << "Infernus $1,000,000 (-60s Robota, -60s Wjazd)" << endl;
+	cout << "Wybor (exit aby wyjsc): ";
+	cin >> choose;
+	if (choose == "exit")
+	{
+		Window();
+	}
+
+	else if (choose == "broadway" || "hustler")
+	{
+		if (money >= 50000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "broadway") ownedCar = "broadway";
+			if (choose == "hustler") ownedCar = "hustler";
+			money -= 50000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "buccaneer")
+	{
+		if (money >= 1000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "buccaneer") ownedCar = "buccaneer";
+			money -= 1000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "greenwood")
+	{
+		if (money >= 3000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "greenwood") ownedCar = "greenwood";
+			money -= 3000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "picador")
+	{
+		if (money >= 5000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "picador") ownedCar = "picador";
+			money -= 5000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "solair")
+	{
+		if (money >= 8000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "solair") ownedCar = "solair";
+			money -= 8000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "sanchez")
+	{
+		if (money >= 15000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "sanchez") ownedCar = "sanchez";
+			money -= 15000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "elegy")
+	{
+		if (money >= 30000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "elegy") ownedCar = "elegy";
+			money -= 30000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "sultan")
+	{
+		if (money >= 40000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			if (choose == "sultan") ownedCar = "sultan";
+			money -= 40000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	else if (choose == "bullet")
+	{
+	if (money >= 70000)
+	{
+		cout << "Zakupiles pojazd!" << endl;
+		if (choose == "bullet") ownedCar = "bullet";
+		money -= 70000;
+		system("pause");
+		NewDay();
+	}
+	else
+	{
+		Window();
+	}
+	}
+	else if (choose == "huntley")
+	{
+	if (money >= 75000)
+	{
+		cout << "Zakupiles pojazd!" << endl;
+		if (choose == "huntley") ownedCar = "huntley";
+		money -= 75000;
+		system("pause");
+		NewDay();
+	}
+	else
+	{
+		Window();
+	}
+	}
+	else if (choose == "cheetah")
+	{
+	if (money >= 150000)
+	{
+		cout << "Zakupiles pojazd!" << endl;
+		if (choose == "150000") ownedCar = "150000";
+		money -= 150000;
+		system("pause");
+		NewDay();
+	}
+	else
+	{
+		Window();
+	}
+	}
+	else if (choose == "turismo")
+	{
+	if (money >= 300000)
+	{
+		cout << "Zakupiles pojazd!" << endl;
+		if (choose == "turismo") ownedCar = "turismo";
+		money -= 300000;
+		system("pause");
+		NewDay();
+	}
+	else
+	{
+		Window();
+	}
+	}
+	else if (choose == "inferus")
+	{
+	if (money >= 1000000)
+	{
+		cout << "Zakupiles pojazd!" << endl;
+		if (choose == "infernus") ownedCar = "infernus";
+		money -= 1000000;
+		system("pause");
+		NewDay();
+	}
+	else
+	{
+		Window();
+	}
+	}
+}
+
+public: void Bank()
+{
+	system("cls");
+	int choose, credit;
+	cout << "Witaj w banku!" << endl;
+	cout << "Forsa w portfelu: $" << money << endl;
+	cout << "Saldo: $" << moneyBank << endl;
+	cout << "[1] Wplata" << endl;
+	cout << "[2] Wyplata" << endl;
+	cout << "[3] Wyjdz" << endl;
+	cout << "Wybierz akcje: ";
+	cin >> choose;
+	if (choose == 1)
+	{
+		cout << "Ile chcesz wplacic?: " << endl;
+		cin >> credit;
+		if (credit > money)
+		{
+			cout << "Nie masz tyle pieniedzy, error!" << endl;
+			system("pause");
+			Bank();
+		}
+		else if (credit <= money)
+		{
+			cout << "Transfer gotowki w toku." << endl;
+			Sleep(1000);
+			cout << "Gotowe, pieniadze sa na Twoim koncie." << endl;
+			money -= credit;
+			moneyBank += credit;
+			deaMission += 1;
+			fbiMission += 1;
+			system("pause");
+			Window();
+		}
+	}
+	else if (choose == 2)
+	{
+		cout << "Ile chcesz wyplacic?: " << endl;
+		cin >> credit;
+		if (credit > moneyBank)
+		{
+			cout << "Nie masz tyle pieniedzy, error!" << endl;
+			system("pause");
+			Bank();
+		}
+		else if (credit <= money)
+		{
+			cout << "Transfer gotowki w toku." << endl;
+			Sleep(1000);
+			cout << "Gotowe, pieniadze sa w Twoim portfelu." << endl;
+			moneyBank -= credit;
+			money -= credit;
+			system("pause");
+			Window();
+		}
+	}
+	else if (choose == 3)
+	{
+		cout << "Opuszczasz bank." << endl;
+		system("pause");
+		Window();
+	}
+}
 
 public: void Chase()
 {
@@ -131,7 +421,7 @@ public: void Prison()
 	cout << "Gliny Cie zlapaly!" << endl;
 	cout << "Idziesz do Department of Corrections. Trwa przeszukiwanie." << endl;
 	Sleep(5000);
-	if (prisonRand[0] == 1)
+	if (prisonRand[0] == 1 && drugs >= 1)
 	{
 		cout << "Straznicy znalezli przy Tobie narkotyki i je skonfiskowali. Trwa przeszukiwanie." << endl;
 		drugs = 0;
@@ -141,7 +431,7 @@ public: void Prison()
 		cout << "Straznicy nie znalezli przy Tobie narkotykow. Trwa przeszukiwanie." << endl;
 	}
 	Sleep(5000);
-	if (prisonRand[1] == 1)
+	if (prisonRand[1] == 1 && guns >= 1)
 	{
 		cout << "Straznicy znalezli przy Tobie bron i ja skonfiskowali. Idziesz siedziec (trzy minuty)." << endl;
 		guns = 0;
@@ -149,6 +439,22 @@ public: void Prison()
 	else if (prisonRand[1] == 2)
 	{
 		cout << "Straznicy nie znalezli przy Tobie broni. Idziesz siedziec (trzy minuty)." << endl;
+	}
+	if (ownedCar != "")
+	{
+		string choose;
+		cout << "Twoj pojazd zostal skonfiskowany! Masz przy sobie $" << money << ". Czy chcesz go wykupic za $3000? (tak/nie): ";
+		if (choose == "tak") money -= 3000;
+		else if (choose == "nie")
+		{
+			cout << "Pojazd zostal skonfiskowany." << endl;
+			ownedCar = "";
+		}
+		else
+		{
+			cout << "Pojazd zostal skonfiskowany." << endl;
+			ownedCar = "";
+		}
 	}
 	cout << "Zostalo Ci piec lat wyroku (3 minuty)." << endl;
 	Sleep(60000);
@@ -163,15 +469,28 @@ public: void Prison()
 public: void Work()
 	{
 		srand(time(0));
-		int missionWork = randNum(0, 1);
+		int missionWork = randNum(1, 2);
 		system("cls");
 		cout << "Jedziesz na robote! Im gorsze auto lub jego brak, tym wolniejsze wykonanie." << endl;
 		if (ownedCar == "")
 		{
 			Sleep(60000);
 		}
+		else if (ownedCar == "broadway" || "hustler") Sleep(60000);
+		else if (ownedCar == "buccaneer") Sleep(55000);
+		else if (ownedCar == "greenwood") Sleep(55000);
+		else if (ownedCar == "picador") Sleep(45000);
+		else if (ownedCar == "solair") Sleep(50000);
+		else if (ownedCar == "sanchez") Sleep(30000);
+		else if (ownedCar == "elegy") Sleep(15000);
+		else if (ownedCar == "sultan") Sleep(25000);
+		else if (ownedCar == "bullet") Sleep(5000);
+		else if (ownedCar == "huntley") Sleep(20000);
+		else if (ownedCar == "cheetah") Sleep(1);
+		else if (ownedCar == "turismo") Sleep(1);
+		else if (ownedCar == "infernus") Sleep(1);
 
-		if (missionWork == 0) //NAPAD NA DOM
+		if (missionWork == 1) //NAPAD NA DOM
 		{
 			int fullHouse = randNum(0, 2);
 			int houseCivilians = randNum(1, 8);
@@ -202,7 +521,7 @@ public: void Work()
 				infoHouse = "pelny!";
 				cout << "W srodku jest " << houseCivilians << " osob." << endl;
 				cout << "Wlamujesz sie do domu, ktory jest: " << infoHouse << endl;
-				cout << "[1] Zastrzel ich i okradnij(wymagana minimum 1 bron na kazdego obywatela)." << endl;
+				cout << "[1] Zastrzel ich i okradnij (wymagana minimum 1 bron na kazdego obywatela)." << endl;
 				cout << "[2] Pobij ich i okradnij" << endl;
 				cout << "[3] Uciekaj!" << endl;
 				cout << "Co robisz?";
@@ -271,19 +590,19 @@ public: void Work()
 			system("pause");
 			Window();
 		}
-		if (missionWork == 1) //KROJENIE CZARNUCHOW
+		if (missionWork == 2) //KROJENIE CZARNUCHOW
 		{
 			int randIncident = randNum(0, 3);
 			int randDrugs = randNum(0, 15);
-			int randGun = randNum(0, 1);
+			int randGun = randNum(1, 2);
 			int randMoney = randNum(100, 1000);
 			if (randIncident == 0)
 			{
 				cout << "Widzisz osobe idaca chodnikiem, wyglada dosyc normalnie." << endl;
 				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
 				Sleep(5000);
-				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!";
-				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!" << endl;
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "g heroiny." << endl;
 				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
 				cout << "Znalazles przy osobie $" << randMoney << endl;
 				drugs += randDrugs;
@@ -300,11 +619,11 @@ public: void Work()
 				cout << "Widzisz osobe idaca chodnikiem, wyglada dosyc normalnie." << endl;
 				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
 				Sleep(5000);
-				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!";
-				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!" << endl;
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "g heroiny." << endl;
 				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
 				cout << "Znalazles przy osobie $" << randMoney << endl;
-				cout << "Zaczyna gonic cie LSPD!";
+				cout << "Zaczyna gonic cie LSPD!" << endl;
 				drugs += randDrugs;
 				guns += randGun;
 				money += randMoney;
@@ -319,11 +638,11 @@ public: void Work()
 				cout << "Widzisz osobe w zaulku, prawdopodobnie gangstera." << endl;
 				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
 				Sleep(5000);
-				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!";
-				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!" << endl;
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "g heroiny." << endl;
 				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
 				cout << "Znalazles przy osobie $" << randMoney << endl;
-				cout << "Zaczyna gonic cie LSPD!";
+				cout << "Zaczyna gonic cie LSPD!" << endl;
 				drugs += randDrugs;
 				guns += randGun;
 				money += randMoney;
@@ -346,7 +665,7 @@ public: void Work()
 					system("pause");
 					NewDay();
 				}
-				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "g heroiny." << endl;
 				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
 				cout << "Znalazles przy osobie $" << randMoney << endl;
 				cout << "Uciekasz z miejsca zdarzenia." << endl;
@@ -413,12 +732,21 @@ public: void Window()
 		cout << "[1] Robota" << endl;
 		cout << "[2] Corner" << endl;
 		cout << "[3] Bank" << endl;
-		cout << "[4] Corner" << endl;
+		cout << "[4] Hoodgaming" << endl;
+		cout << "[5] Salon" << endl;
 		cout << "Wybieram: "; cin >> choose;
 		cout << endl;
 		if (choose == 1)
 		{
 			Work();
+		}
+		if (choose == 3)
+		{
+			Bank();
+		}
+		if (choose == 5)
+		{
+			CarDealer();
 		}
 		system("pause");
 	}
@@ -430,6 +758,9 @@ public: void NewDay()
 		int randRespect = randNum(1, 100);
 		int randDeath = randNum(1, 5);
 		int randHeat = randNum(50, 100);
+		int randDealer = randNum(1, 100);
+		int randDrugs = randNum(1, 50);
+		int randDrugsPrice = randNum(45, 100);
 		int randDeath2 = randNum(1, 5);
 		int randDeath3 = randNum(1, 5);
 		int randDeath4 = randNum(1, 5);
@@ -444,6 +775,42 @@ public: void NewDay()
 		gangs[randGang] -= randDeath2;
 		gangs[randGang2] -= randDeath3;
 		gangs[randGang3] -= randDeath4;
+
+		if (moneyBank > 0)
+		{
+			int moneyPercentage = randNum(1, 50);
+			moneyPercentage /= 10;
+			moneyBank *= moneyPercentage;
+		}
+
+		if (randRespect - 25 > randDealer)
+		{
+			int choose, randCop = randNum(1, 100);
+			cout << "W miescie pojawil sie dealer amfetaminy." << endl;
+			cout << "Ma przy sobie " << randDrugs << "g narkotyku." << endl;
+			cout << "Masz przy sobie $" << money << endl;
+			cout << "Cena za gram wynosi $" << randDrugsPrice << endl;
+			cout << "Jezeli chcesz kupic wpisz ilosc gramow: ";
+			cin >> choose;
+			if (choose*randDrugsPrice > money && randDrugs <= choose)
+			{
+				cout << "Pomyslnie kupiles towar." << endl;
+				Sleep(2000);
+				if (randCop >= 85)
+				{
+					cout << "Szeryf zauwazyl transakcje i zaczal sie poscig wraz z jednostka LSPD." << endl;
+					Sleep(5000);
+					Chase();
+				}
+				system("pause");
+			}
+			else
+			{
+				cout << "Nie udalo Ci sie kupic towaru." << endl;
+				system("pause");
+			}
+
+		}
 
 		if (heatCount == 0 && money + moneyBank > 5000000 && gangs[gangid] > 0)
 		{
