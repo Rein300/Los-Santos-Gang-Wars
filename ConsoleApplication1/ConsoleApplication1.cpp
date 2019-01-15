@@ -26,37 +26,152 @@ las venturas mafia = 15
 */
 
 string nickname, gangName, ownedCar;
-int money = 0, moneyBank = 0, drugs = 0, guns = 0, fbiMission = 0, deaMission = 0, heatCount = 0, respectCount = 50, gangid, gangs[16], lspdCount = 100, lssdCount = 50, fbiCount = 40, deaCount = 20, groveCount = 50, sevilleCount = 50, templeCount = 50, frontCount = 50, rollinCount = 50, kiloCount = 50, aztecasCount = 150, vagosCount = 150, rifaCount = 150, triadsCount = 50, nangCount = 50, mafiaCount = 30;
+int money = 0, robMoney = 0, moneyBank = 0, drugs = 0, guns = 0, fbiMission = 0, deaMission = 0, heatCount = 0, respectCount = 50, gangid, gangs[16], lspdCount = 100, lssdCount = 50, fbiCount = 40, deaCount = 20, groveCount = 50, sevilleCount = 50, templeCount = 50, frontCount = 50, rollinCount = 50, kiloCount = 50, aztecasCount = 150, vagosCount = 150, rifaCount = 150, triadsCount = 50, nangCount = 50, mafiaCount = 30;
 
 int randNum(int min, int max)
 {
-	srand(time(0));
 	return rand() % max + min;
 }
 
 class MyClass {
-	friend void Work();
-	friend void Window();
-	friend void NewDay();
-	friend void gameStart();
-	friend void Chase();
+	friend void Chase(), Prison(), Work(), Window(), NewDay(), gameOver(), gameStart(), gameMain();
 
 public: void Chase()
 {
+	srand(time(0));
+	int chaseRand[4]; string choose;
+	chaseRand[0] = randNum(1, 2); //1 skret
+	chaseRand[1] = randNum(1, 2); //2 skret
+	cout << "Goni Cie LSPD!" << endl;
+	if (ownedCar == "") cout << "Poscig pieszy!" << endl;
+	else cout << "Poscig!" << endl;
+	cout << "Skrecasz w lewo, czy prawo?: " << endl;
+	cin >> choose;
+	if (choose == "lewo" && chaseRand[0] == 1)
+	{
+		choose = "";
+		cout << "Skrecasz w lewo, czy prawo?: " << endl;
+		cin >> choose;
+		if (choose == "lewo" && chaseRand[1] == 1)
+		{
+			choose = "";
+			cout << "Uciekasz im!" << endl;
+			system("pause");
+			NewDay();
+		}
+		else if (choose == "lewo" && chaseRand[1] == 2)
+		{
+			money -= robMoney;
+			Prison();
+		}
+		else if (choose == "prawo" && chaseRand[1] == 1)
+		{
+			money -= robMoney;
+			Prison();
+		}
+		else if (choose == "prawo" && chaseRand[1] == 2)
+		{
+			choose = "";
+			cout << "Uciekasz im!" << endl;
+			system("pause");
+			NewDay();
+		}
+	} 
+	else if (choose == "prawo" && chaseRand[0] == 2)
+	{
+		choose = "";
+		cout << "Skrecasz w lewo, czy prawo?: " << endl;
+		cin >> choose;
+		if (choose == "lewo" && chaseRand[1] == 1)
+		{
+			choose = "";
+			cout << "Uciekasz im!" << endl;
+			system("pause");
+			NewDay();
+		}
+		else if (choose == "lewo" && chaseRand[1] == 2)
+		{
+			money -= robMoney;
+			Prison();
+		}
+		else if (choose == "prawo" && chaseRand[1] == 1)
+		{
+			money -= robMoney;
+			Prison();
+		}
+		else if (choose == "prawo" && chaseRand[1] == 2)
+		{
+			choose = "";
+			cout << "Uciekasz im!" << endl;
+			system("pause");
+			NewDay();
+		}
+	}
 	
+	else if (choose == "lewo" && chaseRand[0] == 2)
+	{
+		money -= robMoney;
+		Prison();
+	}
+
+	else if (choose == "prawo" && chaseRand[0] == 1)
+	{
+		money -= robMoney;
+		Prison();
+	}
+
+}
+
+public: void Prison()
+{
+	srand(time(0));
+	int prisonRand[2];
+	prisonRand[0] = randNum(1, 2); //narkotyki
+	prisonRand[1] = randNum(1, 2); //bron
+	cout << "Gliny Cie zlapaly!" << endl;
+	cout << "Idziesz do Department of Corrections. Trwa przeszukiwanie." << endl;
+	Sleep(5000);
+	if (prisonRand[0] == 1)
+	{
+		cout << "Straznicy znalezli przy Tobie narkotyki i je skonfiskowali. Trwa przeszukiwanie." << endl;
+		drugs = 0;
+	}
+	else if (prisonRand[0] == 2)
+	{
+		cout << "Straznicy nie znalezli przy Tobie narkotykow. Trwa przeszukiwanie." << endl;
+	}
+	Sleep(5000);
+	if (prisonRand[1] == 1)
+	{
+		cout << "Straznicy znalezli przy Tobie bron i ja skonfiskowali. Idziesz siedziec (trzy minuty)." << endl;
+		guns = 0;
+	}
+	else if (prisonRand[1] == 2)
+	{
+		cout << "Straznicy nie znalezli przy Tobie broni. Idziesz siedziec (trzy minuty)." << endl;
+	}
+	cout << "Zostalo Ci piec lat wyroku (3 minuty)." << endl;
+	Sleep(60000);
+	cout << "Zostaly Ci trzy lata wyroku (2 minuty)." << endl;
+	Sleep(60000);
+	cout << "Zostal Ci rok wyroku (minuta)." << endl;
+	Sleep(60000);
+	system("pause");
+	NewDay();
 }
 
 public: void Work()
 	{
-		int missionWork = randNum(0, 2);
+		srand(time(0));
+		int missionWork = randNum(0, 1);
 		system("cls");
 		cout << "Jedziesz na robote! Im gorsze auto lub jego brak, tym wolniejsze wykonanie." << endl;
 		if (ownedCar == "")
 		{
-			Sleep(1);
+			Sleep(60000);
 		}
 
-		if (missionWork >= 0 && missionWork <= 2)
+		if (missionWork == 0) //NAPAD NA DOM
 		{
 			int fullHouse = randNum(0, 2);
 			int houseCivilians = randNum(1, 8);
@@ -156,6 +271,93 @@ public: void Work()
 			system("pause");
 			Window();
 		}
+		if (missionWork == 1) //KROJENIE CZARNUCHOW
+		{
+			int randIncident = randNum(0, 3);
+			int randDrugs = randNum(0, 15);
+			int randGun = randNum(0, 1);
+			int randMoney = randNum(100, 1000);
+			if (randIncident == 0)
+			{
+				cout << "Widzisz osobe idaca chodnikiem, wyglada dosyc normalnie." << endl;
+				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
+				Sleep(5000);
+				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!";
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
+				cout << "Znalazles przy osobie $" << randMoney << endl;
+				drugs += randDrugs;
+				guns += randGun;
+				money += randMoney;
+				heatCount += 3;
+				respectCount += 1;
+				fbiMission += 1;
+				system("pause");
+				NewDay();
+			}
+			else if (randIncident == 1)
+			{
+				cout << "Widzisz osobe idaca chodnikiem, wyglada dosyc normalnie." << endl;
+				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
+				Sleep(5000);
+				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!";
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
+				cout << "Znalazles przy osobie $" << randMoney << endl;
+				cout << "Zaczyna gonic cie LSPD!";
+				drugs += randDrugs;
+				guns += randGun;
+				money += randMoney;
+				heatCount += 5;
+				respectCount -= 3;
+				fbiMission += 2;
+				system("pause");
+				Chase();
+			}
+			else if (randIncident == 2)
+			{
+				cout << "Widzisz osobe w zaulku, prawdopodobnie gangstera." << endl;
+				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
+				Sleep(5000);
+				cout << "Okradasz osobe i uciekasz z miejsca zdarzenia!";
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
+				cout << "Znalazles przy osobie $" << randMoney << endl;
+				cout << "Zaczyna gonic cie LSPD!";
+				drugs += randDrugs;
+				guns += randGun;
+				money += randMoney;
+				heatCount += 5;
+				respectCount -= 3;
+				fbiMission += 2;
+				system("pause");
+				Chase();
+			}
+			else if (randIncident == 3)
+			{
+				int randDeath = randNum(1, 100);
+				cout << "Widzisz osobe w zaulku, prawdopodobnie gangstera." << endl;
+				cout << "Podchodzisz do niej probujac ja okrasc." << endl;
+				Sleep(5000);
+				cout << "Rozpoczyna sie strzelanina!" << endl;
+				if (randDeath <= 20)
+				{
+					cout << "Twoj zolnierz poniosl smierc." << endl;
+					system("pause");
+					NewDay();
+				}
+				if (randDrugs >= 1) cout << "Znalazles przy osobie " << randDrugs << "heroiny." << endl;
+				if (randGun == 1) cout << "Znalazles przy osobie bron!" << endl;
+				cout << "Znalazles przy osobie $" << randMoney << endl;
+				cout << "Uciekasz z miejsca zdarzenia." << endl;
+				heatCount += 10;
+				respectCount -= 10;
+				fbiMission += 5;
+				deaMission += 5;
+				system("pause");
+				NewDay();
+			}
+		}
 	}
 
 public: void Window()
@@ -177,6 +379,7 @@ public: void Window()
 		nangCount = gangs[14];
 		mafiaCount = gangs[15];
 		int choose;
+		robMoney = 0;
 		system("cls");
 		cout << "=====TWOJE STATYSTYKI=====" << endl;
 		cout << "Nick: " << nickname << endl;
@@ -222,6 +425,7 @@ public: void Window()
 
 public: void NewDay()
 	{
+		srand(time(0));
 		system("cls");
 		int randRespect = randNum(1, 100);
 		int randDeath = randNum(1, 5);
@@ -235,10 +439,22 @@ public: void NewDay()
 		if (randGang == gangid) randDeath2 = 0;
 		if (randGang2 == gangid) randDeath3 = 0;
 		if (randGang3 == gangid) randDeath4 = 0;
+		robMoney = 0;
 
 		gangs[randGang] -= randDeath2;
 		gangs[randGang2] -= randDeath3;
 		gangs[randGang3] -= randDeath4;
+
+		if (heatCount == 0 && money + moneyBank > 5000000 && gangs[gangid] > 0)
+		{
+			gameOver();
+		}
+
+		if (gangs[gangid] <= 0)
+		{
+			gangs[gangid] = 0;
+			gameOver();
+		}
 
 		if (randHeat <= heatCount)
 		{
@@ -256,13 +472,13 @@ public: void NewDay()
 		if (fbiMission >= 100)
 		{
 			cout << "Twoja grupa przestepcza zostala rozbita przez FBI! Wszyscy idziecie siedziec. Gra skonczona!" << endl;
-			system("pause");
+			gameOver();
 		}
 
 		if (deaMission >= 100)
 		{
 			cout << "Twoja grupa przestepcza zostala rozbita przez DEA! Wszyscy idziecie siedziec. Gra skonczona!" << endl;
-			system("pause");
+			gameOver();
 		}
 
 		if (respectCount >= randRespect)
@@ -285,9 +501,46 @@ public: void NewDay()
 			Window();
 		}
 	}
+		
+public: void gameOver()
+	{
+		system("cls");
+		cout << "=====STATYSTYKI KONCOWE=====" << endl;
+		cout << "Nick: " << nickname << endl;
+		cout << "Forsa: $" << money << " | Bank: $" << moneyBank << endl;
+		cout << "Bronie: " << guns << endl;
+		cout << "Dragi: " << drugs << endl;
+		cout << "Gang: " << gangName << endl;
+		cout << "Pojazd: " << ownedCar << endl;
+		cout << "Heat: " << heatCount << endl;
+		cout << "Respekt: " << respectCount << endl;
+		cout << "FBI: " << fbiMission << "%" << endl;
+		cout << "DEA: " << deaMission << "%" << endl;
+		cout << "=====STATYSTYKI KONCOWE GANGOW i FRAKCJI=====" << endl;
+		cout << "Los Santos Police Department: " << lspdCount << endl;
+		cout << "Los Santos County Sheriff's Department: " << lssdCount << endl;
+		cout << "Federal Bureau of Investigation: " << fbiCount << endl;
+		cout << "Drug Enforcment Administration: " << deaCount << endl;
+		cout << "(GROVE) Grove Street Families: " << groveCount << endl;
+		cout << "(GROVE) Seville Boulevard Families: " << sevilleCount << endl;
+		cout << "(GROVE) Temple Drive Families: " << templeCount << endl;
+		cout << "(BALLAS) Front Yard Ballas: " << frontCount << endl;
+		cout << "(BALLAS) Rollin' Heights Ballas: " << rollinCount << endl;
+		cout << "(BALLAS) Kilo Tray Ballas: " << kiloCount << endl;
+		cout << "Varrios Los Aztecas: " << aztecasCount << endl;
+		cout << "Los Santos Vagos: " << vagosCount << endl;
+		cout << "San Fierro Rifa: " << rifaCount << endl;
+		cout << "San Fierro Triads: " << triadsCount << endl;
+		cout << "Da Nang Boys: " << nangCount << endl;
+		cout << "Las Venturas Mafia: " << mafiaCount << endl;
+		Sleep(5000);
+		system("pause");
+		gameMain();
+	}
 
 public: void gameStart()
 	{
+		srand(time(0));
 		system("cls");
 		int randGang = randNum(1, 9);
 		switch (randGang)
@@ -306,32 +559,40 @@ public: void gameStart()
 		system("pause");
 		NewDay();
 	}
+
+public: void gameMain()
+	{
+		gangs[0] = lspdCount;
+		gangs[1] = lssdCount;
+		gangs[2] = fbiCount;
+		gangs[3] = deaCount;
+		gangs[4] = groveCount;
+		gangs[5] = sevilleCount;
+		gangs[6] = templeCount;
+		gangs[7] = frontCount;
+		gangs[8] = rollinCount;
+		gangs[9] = kiloCount;
+		gangs[10] = aztecasCount;
+		gangs[11] = vagosCount;
+		gangs[12] = rifaCount;
+		gangs[13] = triadsCount;
+		gangs[14] = nangCount;
+		gangs[15] = mafiaCount;
+
+		system("cls");
+		cout << "Witaj w LSGW v2!" << endl;
+		cout << "Aby wygrac gre musisz zdobyc lacznie $5,000,000 i nie byc poszukiwanym przez LSPD." << endl;
+		cout << "Podaj prosze swoja nazwe: ";
+		cin >> nickname;
+		Sleep(1000);
+		system("pause");
+		gameStart();
+	}
 };
 
 int main()
 {
-	gangs[0] = lspdCount;
-	gangs[1] = lssdCount;
-	gangs[2] = fbiCount;
-	gangs[3] = deaCount;
-	gangs[4] = groveCount;
-	gangs[5] = sevilleCount;
-	gangs[6] = templeCount;
-	gangs[7] = frontCount;
-	gangs[8] = rollinCount;
-	gangs[9] = kiloCount;
-	gangs[10] = aztecasCount;
-	gangs[11] = vagosCount;
-	gangs[12] = rifaCount;
-	gangs[13] = triadsCount;
-	gangs[14] = nangCount;
-	gangs[15] = mafiaCount;
-
-	cout << "Witaj w LSGW v2!" << endl;
-	cout << "Podaj prosze swoja nazwe: ";
-	cin >> nickname;
-	Sleep(1000);
-	system("pause");
-	MyClass().gameStart();
+	srand(time(0));
+	MyClass().gameMain();
 }
 
