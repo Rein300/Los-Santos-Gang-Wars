@@ -1,8 +1,8 @@
 ﻿  ConsoleApplication1.cpp
-c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(331): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(417): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(471): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(756): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(910): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(962): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(665): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(751): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(805): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(1103): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(1248): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\szeryf\desktop\consoleapplication1\consoleapplication1\consoleapplication1.cpp(1300): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   ConsoleApplication1.vcxproj -> C:\Users\Szeryf\Desktop\ConsoleApplication1\Debug\ConsoleApplication1.exe
