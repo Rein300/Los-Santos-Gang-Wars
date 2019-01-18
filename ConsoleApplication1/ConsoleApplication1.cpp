@@ -26,7 +26,7 @@ las venturas mafia = 15
 */
 
 string nickname, gangName, ownedCar;
-int money = 0, robMoney = 0, moneyBank = 0, drugs = 0, guns = 0, fbiMission = 0, deaMission = 0, heatCount = 0, respectCount = 50, gangid, lastAttacker = 0, gangs[16], lspdCount = 100, lssdCount = 50, fbiCount = 40, deaCount = 20, groveCount = 50, sevilleCount = 50, templeCount = 50, frontCount = 50, rollinCount = 50, kiloCount = 50, aztecasCount = 150, vagosCount = 150, rifaCount = 150, triadsCount = 50, nangCount = 50, mafiaCount = 30;
+int money = 500000, robMoney = 0, moneyBank = 0, drugs = 0, guns = 0, fbiMission = 0, deaMission = 0, heatCount = 0, respectCount = 50, gangid, lastAttacker = 0, gangs[16], lspdCount = 100, lssdCount = 50, fbiCount = 40, deaCount = 20, groveCount = 50, sevilleCount = 50, templeCount = 50, frontCount = 50, rollinCount = 50, kiloCount = 50, aztecasCount = 150, vagosCount = 150, rifaCount = 150, triadsCount = 50, nangCount = 50, mafiaCount = 30;
 
 int randNum(int min, int max)
 {
@@ -175,7 +175,7 @@ public: void Ammunation()
 	cout << "Dzisiejszy koszt kalibru .45 wynosi: $" << randGunPrice << endl;
 	cout << "Ile sztuk broni chcesz kupic? (0 aby wyjsc): ";
 	cin >> choose;
-	if (choose >= 1 && money * choose >= 0)
+	if (choose >= 1 && money * choose >= 0 && choose * randGunPrice <= money)
 	{
 		cout << "Pomyslnie zakupiles bron." << endl;
 		guns += choose;
@@ -1277,6 +1277,10 @@ public: void CarDealer()
 			Window();
 		}
 	}
+	else
+	{
+		Window();
+	}
 }
 
 public: void Bank()
@@ -1461,6 +1465,7 @@ public: void Prison()
 	{
 		string choose;
 		cout << "Twoj pojazd zostal skonfiskowany! Masz przy sobie $" << money << ". Czy chcesz go wykupic za $3000? (tak/nie): ";
+		cin >> choose;
 		if (choose == "tak") money -= 3000;
 		else if (choose == "nie")
 		{
@@ -1489,23 +1494,49 @@ public: void Work()
 		int missionWork = randNum(1, 5);
 		system("cls");
 		cout << "Jedziesz na robote! Im gorsze auto lub jego brak, tym wolniejsze wykonanie." << endl;
-		if (ownedCar == "")
-		{
-			Sleep(60000);
+		
+		if (ownedCar == "broadway" || ownedCar == "hustler") {
+			cout << "60s" << endl; Sleep(60000);
 		}
-		else if (ownedCar == "broadway" || "hustler") Sleep(60000);
-		else if (ownedCar == "buccaneer") Sleep(55000);
-		else if (ownedCar == "greenwood") Sleep(55000);
-		else if (ownedCar == "picador") Sleep(45000);
-		else if (ownedCar == "solair") Sleep(50000);
-		else if (ownedCar == "sanchez") Sleep(30000);
-		else if (ownedCar == "elegy") Sleep(15000);
-		else if (ownedCar == "sultan") Sleep(25000);
-		else if (ownedCar == "bullet") Sleep(5000);
-		else if (ownedCar == "huntley") Sleep(20000);
-		else if (ownedCar == "cheetah") Sleep(1);
-		else if (ownedCar == "turismo") Sleep(1);
-		else if (ownedCar == "infernus") Sleep(1);
+		else if (ownedCar == "buccaneer") {
+			cout << "55s" << endl; Sleep(55000);
+		}
+		else if (ownedCar == "greenwood") {
+			cout << "55s" << endl; Sleep(55000);
+		}
+		else if (ownedCar == "picador") {
+			cout << "45s" << endl; Sleep(45000);
+		}
+		else if (ownedCar == "solair") {
+			cout << "50s" << endl; Sleep(50000);
+		}
+		else if (ownedCar == "sanchez") {
+			cout << "30s" << endl; Sleep(30000);
+		}
+		else if (ownedCar == "elegy") {
+			cout << "15s" << endl; Sleep(15000);
+		}
+		else if (ownedCar == "sultan") {
+			cout << "25s" << endl; Sleep(25000);
+		}
+		else if (ownedCar == "bullet") {
+			cout << "5s" << endl; Sleep(5000);
+		}
+		else if (ownedCar == "huntley") {
+			cout << "20s" << endl; Sleep(20000);
+		}
+		else if (ownedCar == "cheetah") {
+			cout << "1s" << endl; Sleep(1);
+		}
+		else if (ownedCar == "turismo") {
+			cout << "1s" << endl; Sleep(1);
+		}
+		else if (ownedCar == "infernus") {
+			cout << "1s" << endl; Sleep(1);
+		}
+		else if(ownedCar == "") {
+			cout << "60s" << endl; Sleep(60000);
+		}
 
 		if (missionWork == 1) //NAPAD NA DOM
 		{
