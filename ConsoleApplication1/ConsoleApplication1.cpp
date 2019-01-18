@@ -193,7 +193,7 @@ public: void Ammunation()
 public: void HoodGaming()
 {
 	system("cls");
-	int randHoodAction = randNum(1, 2);
+	int randHoodAction = randNum(1, 6);
 	if (randHoodAction == 1)
 	{
 		cout << "Tagujecie dzielnice z ziomkami." << endl;
@@ -345,6 +345,48 @@ public: void HoodGaming()
 			Sleep(10000);
 			NewDay();
 		}
+	}
+	else if (randHoodAction == 3)
+	{
+		cout << "Bawicie sie w furach na osiedlu." << endl;
+		Sleep(15000);
+		heatCount -= 2;
+		respectCount += 1;
+		fbiMission -= 1;
+		deaMission -= 1;
+		system("pause");
+		NewDay();
+	}
+	else if (randHoodAction == 4)
+	{
+		cout << "Gracie w koszykowke 3 versus 3." << endl;
+		Sleep(15000);
+		heatCount -= 2;
+		respectCount += 1;
+		fbiMission -= 1;
+		deaMission -= 1;
+		system("pause");
+		NewDay();
+	}
+	else if (randHoodAction == 5)
+	{
+	cout << "Jaracie dopy na trapie." << endl;
+	Sleep(15000);
+	heatCount -= 2;
+	respectCount -= 5;
+	deaMission += 1;
+	system("pause");
+	NewDay();
+	}
+	else if (randHoodAction == 6)
+	{
+	cout << "Ruchacie szmaty w Pig Penie." << endl;
+	Sleep(15000);
+	heatCount -= 10;
+	respectCount -= 10;
+	if (money >= 100) money -= 100;
+	system("pause");
+	NewDay();
 	}
 }
 
@@ -1117,11 +1159,11 @@ public: void CarDealer()
 	}
 	if (choose == 7)
 	{
-		if (money >= 30000)
+		if (money >= 15000)
 		{
 			cout << "Zakupiles pojazd!" << endl;
 			ownedCar = "sunrise";
-			money -= 30000;
+			money -= 15000;
 			system("pause");
 			NewDay();
 		}
@@ -1131,6 +1173,21 @@ public: void CarDealer()
 		}
 	}
 	if (choose == 8)
+	{
+		if (money >= 30000)
+		{
+			cout << "Zakupiles pojazd!" << endl;
+			ownedCar = "elegy";
+			money -= 30000;
+			system("pause");
+			NewDay();
+		}
+		else
+		{
+			Window();
+		}
+	}
+	if (choose == 9)
 	{
 		if (money >= 40000)
 		{
@@ -1145,7 +1202,7 @@ public: void CarDealer()
 			Window();
 		}
 	}
-	if (choose == 9)
+	if (choose == 10)
 	{
 		if (money >= 70000)
 		{
@@ -1160,7 +1217,7 @@ public: void CarDealer()
 			Window();
 		}
 	}
-	if (choose == 10)
+	if (choose == 11)
 	{
 		if (money >= 75000)
 		{
@@ -1175,7 +1232,7 @@ public: void CarDealer()
 			Window();
 		}
 	}
-	if (choose == 11)
+	if (choose == 12)
 	{
 		if (money >= 150000)
 		{
@@ -1190,7 +1247,7 @@ public: void CarDealer()
 			Window();
 		}
 	}
-	if (choose == 12)
+	if (choose == 13)
 	{
 		if (money >= 300000)
 		{
@@ -1205,7 +1262,7 @@ public: void CarDealer()
 			Window();
 		}
 	}
-	if (choose == 13)
+	if (choose == 14)
 	{
 		if (money >= 1000000)
 		{
@@ -1429,7 +1486,7 @@ public: void Prison()
 public: void Work()
 	{
 		srand(time(0));
-		int missionWork = randNum(1, 2);
+		int missionWork = randNum(1, 5);
 		system("cls");
 		cout << "Jedziesz na robote! Im gorsze auto lub jego brak, tym wolniejsze wykonanie." << endl;
 		if (ownedCar == "")
@@ -1637,6 +1694,185 @@ public: void Work()
 				NewDay();
 			}
 		}
+		if (missionWork == 3) //KRADZIEZ FURY
+		{
+			int choose, x;
+			int randCar = randNum(1, 2);
+			int randCode = randNum(1000, 9999);
+			int randChance = randNum(1, 100);
+			int randMoneyFlow = randNum(1000, 10000);
+			int armedPed = randNum(1, 2);
+			int lockedDoor = randNum(1, 2);
+			int randDeath = randNum(1, 2);
+			int randChase = randNum(1, 2);
+			string randConvert = to_string(randCode);
+			if (randCar == 1)
+			{
+				cout << "Widzisz puste auto na parkingu przy Walmarcie." << endl;
+				cout << "Probujesz je ukrasc." << endl;
+				for (x = 1; x < 5; x++)
+				{
+					Sleep(2000);
+					if (randChance >= 1 && randChance <= 90) cout << x << " cyfra to: " << randConvert[x-1] << endl;
+					else
+					{
+						break;
+						cout << "Rozpoczyna sie poscig!" << endl;
+						heatCount += 3;
+						respectCount -= 3;
+						system("pause");
+						Chase();
+					}
+				}
+				cout << "Wpisz poprawny kod: ";
+				cin >> choose;
+				if (choose == randCode)
+				{
+					cout << "Kradniesz samochod i zwiewasz z miejsca zdarzenia." << endl;
+					heatCount += 5;
+					respectCount += 1;
+					money += randMoneyFlow;
+					system("pause");
+					NewDay();
+				}
+				else 
+				{
+					int randChaseVar = randNum(1, 2);
+					cout << "Wpisales niepoprawny kod, alarm!" << endl;
+					Sleep(3000);
+					system("pause");
+					if (randChaseVar == 1)
+					{
+						heatCount += 3; respectCount -= 3; Chase();
+					}
+					if (randChaseVar == 2)
+					{
+						respectCount -= 5;
+						NewDay();
+					}
+				}
+			}
+			if (randCar == 2)
+			{
+				cout << "Podchodzisz do kierujacego pojazdem i starasz sie otworzyc drzwi." << endl;
+				Sleep(5000);
+				if (lockedDoor == 1)
+				{
+					cout << "Drzwi sa zamkniete!" << endl;
+					Sleep(1000);
+					if (armedPed == 1)
+					{
+						cout << "Cywil jest uzbrojony, oddaje kilka strzalow w Twoim kierunku." << endl;
+						if (randDeath == 1)
+						{
+							cout << "Umierasz!" << endl;
+							if (guns >= 1) guns -= 1;
+							gangs[gangid] -= 1;
+							heatCount += 5;
+							respectCount -= 10;
+							fbiMission += 2;
+							Sleep(3000);
+							system("pause");
+							NewDay();
+						}
+						else if (randDeath == 2)
+						{
+							cout << "Zwiewasz jak krolik!" << endl;
+							heatCount += 3;
+							respectCount -= 5;
+							Sleep(3000);
+							if (randChase == 1) Chase();
+							NewDay();
+						}
+					}
+					
+					else if (armedPed == 2 && guns >= 1)
+					{
+						cout << "Rozsmarowywujesz glowe cywilowi na kierownicy i uciekasz" << endl;
+						Sleep(3000);
+						heatCount += 10;
+						fbiMission += 5;
+						respectCount += 2;
+						system("pause");
+						NewDay();
+					}
+					
+					else if (armedPed == 2 && guns <= 0)
+					{
+						cout << "Nie mozesz wejsc do srodka, uciekasz!" << endl;
+						heatCount += 3;
+						respectCount -= 5;
+						Sleep(3000);
+						if (randChase == 1) Chase();
+						NewDay();
+					}
+				}
+				if (lockedDoor == 2)
+				{
+					if (armedPed == 1 && guns >= 1)
+					{
+						cout << "Rozsmarowywujesz glowe cywilowi na kierownicy i kradniesz auto." << endl;
+						Sleep(3000);
+						heatCount += 10;
+						fbiMission += 5;
+						respectCount += 2;
+						money += randMoneyFlow;
+						system("pause");
+						NewDay();
+					}
+					if (armedPed == 1 && guns <= 1)
+					{
+						cout << "Umierasz!" << endl;
+						gangs[gangid] -= 1;
+						heatCount += 5;
+						respectCount -= 10;
+						fbiMission += 2;
+						Sleep(3000);
+						system("pause");
+						NewDay();
+					}
+					if (armedPed == 2)
+					{
+						cout << "Wyrzucasz goscia z fury i kradniesz auto." << endl;
+						heatCount += 2;
+						respectCount += 5;
+						fbiMission += 1;
+						Sleep(3000);
+						system("pause");
+						NewDay();
+
+					}
+				}
+			}
+		}
+		if (missionWork == 4) //NAPAD NA SKLEP - WIP
+		{
+			int randMoneyCash = randNum(100, 1000);
+			cout << "Okradasz sklep, mamona jest Twoja!" << endl;
+			money += randMoneyCash;
+			heatCount += 3;
+			fbiCount += 1;
+			respectCount -= 2;
+			Sleep(3000);
+			system("pause");
+			NewDay();
+		}
+		if (missionWork == 5) //ZASTRASZENIE - WIP
+		{
+			int randPocketMoney = randNum(50, 500);
+			int randDrugs = randNum(1, 5);
+			cout << "Wraz z ziomkiem bijecie snitcha do nieprzytomnosci." << endl;
+			cout << "Dostajesz losowa ilosc dragow, jedna bron i forse z portfela." << endl;
+			heatCount += 1;
+			respectCount += 5;
+			deaMission += 3;
+			fbiMission += 1;
+			guns += 1;
+			drugs += randDrugs;
+			money += randPocketMoney;
+			system("pause");
+			NewDay();
+		}
 	}
 
 public: void Window()
@@ -1839,6 +2075,16 @@ public: void NewDay()
 		{
 			GangWar();
 		}
+		
+		if (gangs[4] <= 0) gangs[4] = 0;
+		if (gangs[5] <= 0) gangs[5] = 0;
+		if (gangs[6] <= 0) gangs[6] = 0;
+		if (gangs[7] <= 0) gangs[7] = 0;
+		if (gangs[8] <= 0) gangs[8] = 0;
+		if (gangs[9] <= 0) gangs[9] = 0;
+		if (gangs[10] <= 0) gangs[10] = 0;
+		if (gangs[11] <= 0) gangs[11] = 0;
+		if (gangs[12] <= 0) gangs[12] = 0;
 		groveCount = gangs[4];
 		sevilleCount = gangs[5];
 		templeCount = gangs[6];
